@@ -1,0 +1,151 @@
+{
+    "backupCodeEnabled": false,
+    "cachedSessionsWithActivities": null,
+    "createBackupCode": [Function anonymous
+    ],
+    "createEmailAddress": [Function anonymous
+    ],
+    "createExternalAccount": [Function anonymous
+    ],
+    "createOrganizationEnabled": true,
+    "createOrganizationsLimit": undefined,
+    "createPasskey": [Function anonymous
+    ],
+    "createPhoneNumber": [Function anonymous
+    ],
+    "createTOTP": [Function anonymous
+    ],
+    "createWeb3Wallet": [Function anonymous
+    ],
+    "createdAt": 2024-10-08T10: 15: 22.217Z,
+    "delete": [Function anonymous
+    ],
+    "deleteSelfEnabled": true,
+    "disableTOTP": [Function anonymous
+    ],
+    "emailAddresses": [
+        {
+            "attemptVerification": [Function anonymous
+            ],
+            "createEmailLinkFlow": [Function anonymous
+            ],
+            "destroy": [Function anonymous
+            ],
+            "emailAddress": "babithkullachetti22@gmail.com",
+            "id": "idn_2n9PrZeTiS4NwQVHHNw2OcYOh5a",
+            "linkedTo": [Array
+            ],
+            "pathRoot": "/me/email_addresses",
+            "prepareVerification": [Function anonymous
+            ],
+            "toString": [Function anonymous
+            ],
+            "verification": [Zt
+            ]
+        }
+    ],
+    "externalAccounts": [
+        {
+            "approvedScopes": "email https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid profile",
+            "destroy": [Function anonymous
+            ],
+            "emailAddress": "babithkullachetti22@gmail.com",
+            "firstName": "Babith",
+            "id": "eac_2n9PrUz8Q7pCgiMEZY591UnD525",
+            "identificationId": "idn_2n9PrV7VC7hi6CCTVNW6gr4zE0l",
+            "imageUrl": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BQ2c4b2NKRzRoTTB2QS1xYk50V2p6TlJkWDhhanB1TVhiMDI3dTNDeUVSbDQwbjJCYklkOXc9czEwMDAtYyIsInMiOiJmOUJhaktTTWRFYXA3U3pXaE91OEtvYzhVVEhEWVZzUzFpSHEweVhzWlFFIn0",
+            "label": null,
+            "lastName": "Kullachetti",
+            "pathRoot": "/me/external_accounts",
+            "provider": "google",
+            "providerUserId": "113154386905358991019",
+            "publicMetadata": [Object
+            ],
+            "reauthorize": [Function anonymous
+            ],
+            "username": null,
+            "verification": [Zt
+            ]
+        }
+    ],
+    "externalId": null,
+    "firstName": "Babith",
+    "fullName": "Babith Kullachetti",
+    "getOrganizationInvitations": [Function anonymous
+    ],
+    "getOrganizationMemberships": [Function anonymous
+    ],
+    "getOrganizationSuggestions": [Function anonymous
+    ],
+    "getSessions": [Function anonymous
+    ],
+    "hasImage": true,
+    "id": "user_2n9Ps9zmfSfFaA1fPkU5ZH6FSrp",
+    "imageUrl": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ybjlQc0NrSmdGWDIzb1VRM2pJV1B5eWVEazIifQ",
+    "isPrimaryIdentification": [Function anonymous
+    ],
+    "lastName": "Kullachetti",
+    "lastSignInAt": 2024-10-08T10: 15: 22.225Z,
+    "leaveOrganization": [Function anonymous
+    ],
+    "organizationMemberships": [],
+    "passkeys": [],
+    "passwordEnabled": false,
+    "pathRoot": "/me",
+    "phoneNumbers": [],
+    "primaryEmailAddress": {
+        "attemptVerification": [Function anonymous
+        ],
+        "createEmailLinkFlow": [Function anonymous
+        ],
+        "destroy": [Function anonymous
+        ],
+        "emailAddress": "babithkullachetti22@gmail.com",
+        "id": "idn_2n9PrZeTiS4NwQVHHNw2OcYOh5a",
+        "linkedTo": [
+            [ii
+            ]
+        ],
+        "pathRoot": "/me/email_addresses",
+        "prepareVerification": [Function anonymous
+        ],
+        "toString": [Function anonymous
+        ],
+        "verification": {
+            "attempts": null,
+            "error": null,
+            "expireAt": 2024-10-08T10: 16: 03.401Z,
+            "externalVerificationRedirectURL": null,
+            "nonce": null,
+            "pathRoot": "",
+            "status": "verified",
+            "strategy": "from_oauth_google",
+            "verifiedAtClient": undefined,
+            "verifiedFromTheSameClient": [Function anonymous
+            ]
+        }
+    },
+    "primaryEmailAddressId": "idn_2n9PrZeTiS4NwQVHHNw2OcYOh5a",
+    "primaryPhoneNumber": null,
+    "primaryPhoneNumberId": null,
+    "primaryWeb3Wallet": null,
+    "primaryWeb3WalletId": null,
+    "publicMetadata": {},
+    "removePassword": [Function anonymous
+    ],
+    "samlAccounts": [],
+    "setProfileImage": [Function anonymous
+    ],
+    "totpEnabled": false,
+    "twoFactorEnabled": false,
+    "unsafeMetadata": {},
+    "update": [Function anonymous
+    ],
+    "updatePassword": [Function anonymous
+    ],
+    "updatedAt": 2024-10-08T10: 15: 22.274Z,
+    "username": null,
+    "verifyTOTP": [Function anonymous
+    ],
+    "web3Wallets": []
+}
