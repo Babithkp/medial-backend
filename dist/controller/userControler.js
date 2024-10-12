@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createUser = void 0;
+exports.createPost = exports.createUser = void 0;
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -48,3 +48,35 @@ const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.createUser = createUser;
+const createPost = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const postData = req.body;
+    if (!postData)
+        res.status(401).json({ error: "Invalid Post data provided" });
+    if (!postData.userId)
+        res.status(402).json({ error: "userId is required" });
+    try {
+        const response = yield prisma.post.create({
+            data: {
+                pod: postData.pod,
+                image: postData.imageUrl,
+                caption: postData.postText,
+                User: {
+                    connect: {
+                        id: postData.userId
+                    }
+                }
+            }
+        });
+        if (!response) {
+            res.status(400).json({ error: "Failed to create Post" });
+            return;
+        }
+        res.status(200).json({
+            message: "Post created successfully",
+        });
+    }
+    catch (er) {
+        console.log(er);
+    }
+});
+exports.createPost = createPost;
