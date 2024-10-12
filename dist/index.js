@@ -5,17 +5,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
-const userControler_1 = require("./controller/userControler");
+const multer_1 = __importDefault(require("multer"));
+const userController_1 = require("./controller/userController");
+const fileUploadsController_1 = require("./controller/fileUploadsController");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use((0, cors_1.default)());
+const storage = multer_1.default.memoryStorage();
+const upload = (0, multer_1.default)({ storage });
 app.get("/", (req, res) => {
     res.json({ message: "Server started" });
 });
-app.post('/api/v1/addNewUser', userControler_1.createUser);
-app.post('/api/v1/addNewPost', userControler_1.createPost);
-app.get("/api/v1/getAllPost", userControler_1.getAllPostData);
+app.post("/api/v1/addNewUser", userController_1.createUser);
+app.post("/api/v1/addNewPost", userController_1.createPost);
+app.post("/api/v1/uploadPostFile", upload.single('file'), fileUploadsController_1.uploadPostFile);
+app.get("/api/v1/getAllPost", userController_1.getAllPostData);
 app.listen(3000, () => {
     console.log("Server started listening on port " + 3000);
 });

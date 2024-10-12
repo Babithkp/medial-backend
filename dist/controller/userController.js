@@ -62,10 +62,10 @@ const createPost = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
                 caption: postData.postText,
                 User: {
                     connect: {
-                        id: postData.userId
-                    }
-                }
-            }
+                        id: postData.userId,
+                    },
+                },
+            },
         });
         if (!response) {
             res.status(400).json({ error: "Failed to create Post" });
@@ -84,8 +84,8 @@ const getAllPostData = (req, res) => __awaiter(void 0, void 0, void 0, function*
     try {
         const response = yield prisma.post.findMany({
             include: {
-                User: true
-            }
+                User: true,
+            },
         });
         if (response) {
             res.status(200).json(response);
