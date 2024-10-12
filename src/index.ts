@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { createPost, createUser } from "./controller/userControler";
+import { createPost, createUser, getAllPostData } from "./controller/userControler";
 
 const app = express();
 app.use(express.json());
@@ -16,6 +16,8 @@ app.get("/", (req, res) => {
 app.post('/api/v1/addNewUser', createUser);
 
 app.post('/api/v1/addNewPost', createPost)
+
+app.get("/api/v1/getAllPost", getAllPostData)
 
 app.listen(3000, () => {
   console.log("Server started listening on port " + 3000);

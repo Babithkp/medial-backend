@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createPost = exports.createUser = void 0;
+exports.getAllPostData = exports.createPost = exports.createUser = void 0;
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -80,3 +80,18 @@ const createPost = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.createPost = createPost;
+const getAllPostData = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const response = yield prisma.post.findMany();
+        if (response) {
+            res.status(200).json(response);
+        }
+        else {
+            res.status(400).json({ error: "Failed to get Post" });
+        }
+    }
+    catch (e) {
+        console.log(e);
+    }
+});
+exports.getAllPostData = getAllPostData;

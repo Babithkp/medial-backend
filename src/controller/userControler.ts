@@ -83,3 +83,18 @@ export const createPost = async (req: Request, res: Response) => {
     
   }
 }
+
+
+export const getAllPostData = async (req: Request, res: Response) => {
+  try{
+    const response = await prisma.post.findMany();
+    if(response){
+      res.status(200).json(response);
+    }else{
+      res.status(400).json({ error: "Failed to get Post" });
+    }
+  }catch(e){
+    console.log(e);
+    
+  }
+}

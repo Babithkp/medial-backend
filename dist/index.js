@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
 });
 app.post('/api/v1/addNewUser', userControler_1.createUser);
 app.post('/api/v1/addNewPost', userControler_1.createPost);
+app.get("/api/v1/getAllPost", userControler_1.getAllPostData);
 app.listen(3000, () => {
     console.log("Server started listening on port " + 3000);
 });
