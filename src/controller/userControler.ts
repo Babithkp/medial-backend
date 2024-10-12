@@ -28,6 +28,7 @@ export const createUser = async (req: Request, res: Response) => {
       res.status(201).json({ error: "User already exist" });
       return
     }
+    
 
     const response = await prisma.user.create({
       data: {
