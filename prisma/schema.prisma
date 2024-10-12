@@ -18,11 +18,11 @@ model Post {
   pod      String
   image    String?
   caption  String
-  date     DateTime
   likes    Int       @default(0)
   User     User      @relation(fields: [UserId], references: [id])
   UserId   String    @db.ObjectId
   replies Comment[]
+  createdAt DateTime @default(now())
 }
 
 model User {

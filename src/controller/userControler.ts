@@ -28,7 +28,7 @@ export const createUser = async (req: Request, res: Response) => {
       res.status(201).json({ error: "User already exist" });
       return
     }
-    
+
 
     const response = await prisma.user.create({
       data: {
@@ -51,3 +51,35 @@ export const createUser = async (req: Request, res: Response) => {
     console.log(e);
   }
 };
+
+
+export const createPost = async (req: Request, res: Response) => {
+  const postData = req.body;
+  if (!postData) res.status(401).json({ error: "Invalid Post data provided" });
+  if(!postData.userId) res.status(402).json({ error: "userId is required" });
+  try{
+    const response = await prisma.post.create({
+      data: {
+        pod: postData.pod,
+        image: postData.imageUrl,
+        caption: postData.postText,
+        User:{
+          connect:{
+            id: postData.userId
+          }
+        }
+      } 
+    })
+    if(!response) {
+      res.status(400).json({ error: "Failed to create Post" });
+      return
+    }
+    res.status(200).json({
+      message: "Post created successfully",
+    });
+
+  }catch(er){
+    console.log(er);
+    
+  }
+}
