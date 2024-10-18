@@ -12,10 +12,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.uploadPostFile = void 0;
+exports.getPostFile = exports.uploadPostFile = void 0;
 const dotenv_1 = __importDefault(require("dotenv"));
 const client_s3_1 = require("@aws-sdk/client-s3");
 const lib_storage_1 = require("@aws-sdk/lib-storage");
+const formidable_1 = __importDefault(require("formidable"));
 dotenv_1.default.config();
 const region = process.env.AWS_REGION;
 const accessKeyId = process.env.AWS_ACCESS_ID;
@@ -39,7 +40,7 @@ const uploadPostFile = (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
     const params = {
         Bucket: bucketName,
-        Key: `${Date.now().toString()}_${files.originalname}`,
+        Key: `medial/posts/${Date.now().toString()}_${files.originalname}`,
         Body: files.buffer,
     };
     try {
@@ -65,3 +66,9 @@ const uploadPostFile = (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
 });
 exports.uploadPostFile = uploadPostFile;
+const getPostFile = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const form = (0, formidable_1.default)();
+    const [fields, files] = yield form.parse(req);
+    console.log(files);
+});
+exports.getPostFile = getPostFile;

@@ -15,11 +15,13 @@ app.use((0, cors_1.default)());
 const storage = multer_1.default.memoryStorage();
 const upload = (0, multer_1.default)({ storage });
 app.get("/", (req, res) => {
+    console.log("server started");
     res.json({ message: "Server started" });
 });
 app.post("/api/v1/addNewUser", userController_1.createUser);
 app.post("/api/v1/addNewPost", userController_1.createPost);
 app.post("/api/v1/uploadPostFile", upload.single('file'), fileUploadsController_1.uploadPostFile);
+app.post("/api/v1/getPostFile", fileUploadsController_1.getPostFile);
 app.get("/api/v1/getAllPost", userController_1.getAllPostData);
 app.listen(3000, () => {
     console.log("Server started listening on port " + 3000);
