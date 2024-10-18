@@ -20,8 +20,7 @@ app.get("/", (req, res) => {
 });
 app.post("/api/v1/addNewUser", userController_1.createUser);
 app.post("/api/v1/addNewPost", userController_1.createPost);
-app.post("/api/v1/uploadPostFile", upload.single('file'), fileUploadsController_1.uploadPostFile);
-app.post("/api/v1/getPostFile", fileUploadsController_1.getPostFile);
+app.post("/api/v1/uploadPostFile", fileUploadsController_1.uploadPostFile);
 app.get("/api/v1/getAllPost", userController_1.getAllPostData);
 app.listen(3000, () => {
     console.log("Server started listening on port " + 3000);

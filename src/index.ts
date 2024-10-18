@@ -5,7 +5,7 @@ import {
   createUser,
   getAllPostData,
 } from "./controller/userController";
-import { getPostFile, uploadPostFile } from "./controller/fileUploadsController";
+import { uploadPostFile } from "./controller/fileUploadsController";
 
 
 const app = express();
@@ -25,9 +25,8 @@ app.get("/", (req, res) => {
 
 app.post("/api/v1/addNewUser", createUser);
 app.post("/api/v1/addNewPost", createPost);
-app.post("/api/v1/uploadPostFile",upload.single('file'),uploadPostFile);
+app.post("/api/v1/uploadPostFile",uploadPostFile);
 
-app.post("/api/v1/getPostFile", getPostFile)
 
 app.get("/api/v1/getAllPost", getAllPostData);
 
