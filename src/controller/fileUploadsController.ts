@@ -1,8 +1,7 @@
-import dotenv from "dotenv";
-import { Request, Response } from "express";
+import dotenv from "dotenv";import { Request, Response } from "express";
 import { S3Client } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
-import formidable, {errors as formidableErrors} from 'formidable';
+import formidable, { errors as formidableErrors } from "formidable";
 
 dotenv.config();
 
@@ -20,10 +19,8 @@ const s3 = new S3Client({
   credentials: {
     accessKeyId,
     secretAccessKey,
-  }
+  },
 });
-
-
 
 export const uploadPostFile = async (req: Request, res: Response) => {
   const files = req.file;
@@ -62,9 +59,8 @@ export const uploadPostFile = async (req: Request, res: Response) => {
   }
 };
 
-
-export const getPostFile = async(req: Request, res: Response) => {
-  const form = formidable()
-  const [fields,files] = await form.parse(req);
-  console.log(files);
-}
+export const getPostFile = async (req: Request, res: Response) => {
+  const form = formidable();
+  const [fields, files] = await form.parse(req);
+  res.status(200).json({ data: files });
+};

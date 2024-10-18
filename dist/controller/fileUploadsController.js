@@ -30,7 +30,7 @@ const s3 = new client_s3_1.S3Client({
     credentials: {
         accessKeyId,
         secretAccessKey,
-    }
+    },
 });
 const uploadPostFile = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const files = req.file;
@@ -69,6 +69,6 @@ exports.uploadPostFile = uploadPostFile;
 const getPostFile = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const form = (0, formidable_1.default)();
     const [fields, files] = yield form.parse(req);
-    console.log(files);
+    res.status(200).json({ data: files });
 });
 exports.getPostFile = getPostFile;
