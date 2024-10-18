@@ -5,7 +5,7 @@ import {
   createUser,
   getAllPostData,
 } from "./controller/userController";
-import { uploadPostFile } from "./controller/fileUploadsController";
+import { getPostFile, uploadPostFile } from "./controller/fileUploadsController";
 
 
 const app = express();
@@ -18,6 +18,7 @@ const upload = multer({ storage });
 
 
 app.get("/", (req, res) => {
+  console.log("server started");
   res.json({ message: "Server started" });
 });
 
@@ -25,6 +26,8 @@ app.get("/", (req, res) => {
 app.post("/api/v1/addNewUser", createUser);
 app.post("/api/v1/addNewPost", createPost);
 app.post("/api/v1/uploadPostFile",upload.single('file'),uploadPostFile);
+
+app.post("/api/v1/getPostFile", getPostFile)
 
 app.get("/api/v1/getAllPost", getAllPostData);
 

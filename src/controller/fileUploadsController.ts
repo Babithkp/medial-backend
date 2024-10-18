@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import { Request, Response } from "express";
 import { S3Client } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
+import formidable, {errors as formidableErrors} from 'formidable';
 
 dotenv.config();
 
@@ -33,7 +34,7 @@ export const uploadPostFile = async (req: Request, res: Response) => {
 
   const params = {
     Bucket: bucketName,
-    Key: `${Date.now().toString()}_${files.originalname}`,
+    Key: `medial/posts/${Date.now().toString()}_${files.originalname}`,
     Body: files.buffer,
   };
 
@@ -60,3 +61,10 @@ export const uploadPostFile = async (req: Request, res: Response) => {
     console.log(e);
   }
 };
+
+
+export const getPostFile = async(req: Request, res: Response) => {
+  const form = formidable()
+  const [fields,files] = await form.parse(req);
+  console.log(files);
+}
